@@ -203,25 +203,27 @@
           }
         },
         "interactivityType":{
-          "type":"object",
-          "$ref":"#/definitions/Link",
-          "properties":{
-            "@type":{
-              "enum":[
-                "Concept"
-              ]
-            },
-            "inScheme":{
-              "type":"object",
-              "properties":{
-                "@id":{
-                  "enum":[
-                    "http://purl.org/dcx/lrmi-vocabs/interactivityType/"
-                  ]
+          "allOf": [
+            { "$ref": "#/definitions/Link" },
+            { "properties": {
+              "@type":{
+                "enum":[
+                  "Concept"
+                ]
+              },
+              "inScheme":{
+                "type":"object",
+                "properties":{
+                  "@id":{
+                    "enum":[
+                      "http://purl.org/dcx/lrmi-vocabs/interactivityType/"
+                    ]
+                  }
                 }
               }
             }
           }
+        ]
         },
         "hasCourseInstance":{
           "description":"An instance of the course being held",
@@ -229,22 +231,13 @@
           "items":{
             "allOf":[
               {
-                "$ref":"#/definitions/Link"
-              },
-              {
-                "properties":{
-                  "@type":{
-                    "enum":[
-                      "CourseInstance"
-                    ]
-                  }
-                }
+                "$ref":"#/definitions/CourseInstance"
               }
             ]
           }
         },
         "hasPart":{
-          "description":"An part of the course",
+          "description":"A part of the course",
           "type":"array",
           "items":{
             "allOf":[

@@ -178,22 +178,28 @@
           "items":{
             "allOf":[
               {
-                "$ref":"#/definitions/Link"
-              },
-              {
                 "properties":{
                   "@type":{
                     "enum":[
-                      "Concept"
+                      "EducationalAudience"
                     ]
                   },
-                  "inScheme":{
+                  "educationalRole":{
                     "type":"object",
                     "properties":{
+                      "inScheme":{
+                        "type":"object",
+                        "properties":{
+                          "@id":{
+                            "enum":[
+                              "http://purl.org/dcx/lrmi-vocabs/educationalAudienceRole/"
+                            ]
+                          }
+                        }
+                      },
                       "@id":{
-                        "enum":[
-                          "http://purl.org/dcx/lrmi-vocabs/educationalAudienceRole/"
-                        ]
+                        "type":"string",
+                        "format":"url"
                       }
                     }
                   }
@@ -203,27 +209,30 @@
           }
         },
         "interactivityType":{
-          "allOf": [
-            { "$ref": "#/definitions/Link" },
-            { "properties": {
-              "@type":{
-                "enum":[
-                  "Concept"
-                ]
-              },
-              "inScheme":{
-                "type":"object",
-                "properties":{
-                  "@id":{
-                    "enum":[
-                      "http://purl.org/dcx/lrmi-vocabs/interactivityType/"
-                    ]
+          "allOf":[
+            {
+              "$ref":"#/definitions/Link"
+            },
+            {
+              "properties":{
+                "@type":{
+                  "enum":[
+                    "Concept"
+                  ]
+                },
+                "inScheme":{
+                  "type":"object",
+                  "properties":{
+                    "@id":{
+                      "enum":[
+                        "http://purl.org/dcx/lrmi-vocabs/interactivityType/"
+                      ]
+                    }
                   }
                 }
               }
             }
-          }
-        ]
+          ]
         },
         "hasCourseInstance":{
           "description":"An instance of the course being held",
@@ -241,9 +250,6 @@
           "type":"array",
           "items":{
             "allOf":[
-              {
-                "$ref":"#/definitions/Link"
-              },
               {
                 "properties":{
                   "@type":{
@@ -263,11 +269,7 @@
             ]
           }
         }
-      },
-      "required":[
-        "name"
-      ],
-      "additionalProperties":false
+      }
     },
     "CourseInstance":{
       "$schema":"http://json-schema.org/draft-04/schema#",
@@ -331,10 +333,6 @@
           }
         }
       },
-      "required":[
-        "name",
-        "url"
-      ],
       "additionalProperties":false
     },
     "iso-8601-date":{

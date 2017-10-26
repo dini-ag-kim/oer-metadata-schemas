@@ -12,14 +12,14 @@
   ],
   "hasCourseInstance":[
     {
-      "type":"CourseInstance",
+      "@type":"CourseInstance",
       "startDate":"2017-09-21",
       "endDate":"2018-01-11",
       "courseMode":"onsite",
       "offers":{
         "type":"Offer",
         "offeredBy":{
-          "id":"http://www.wikidata.org/entity/Q1622220",
+          "@id":"http://www.wikidata.org/entity/Q1622220",
           "name":"HTW Chur"
         }
       }
@@ -42,6 +42,7 @@
       "@id":"https://w3id.org/class/esc/n06"
     },
     {
+      "@type":"Concept",
       "name":[
         {
           "@value":"Bibliotheks-, Informations- und Archivwesen",
@@ -59,38 +60,47 @@
   "datePublished":"2017-09-20",
   "timeRequired":"7 days",
   "typicalAgeRange":"18-65",
-  "audience":{
-    "type":"EducationalAudience",
-    "educationalRole":"student"
+  "audience": [
+    {
+      "type":"EducationalAudience",
+      "educationalRole": {
+        "@id": "http://purl.org/dcx/lrmi-vocabs/educationalAudienceRole/student",
+        "name": "student"
+      } 
+    }
+  ],
+  "interactivityType": {
+    "@id": "http://purl.org/dcx/lrmi-vocabs/interactivityType/",
+    "@type": "Concept",
+    "name": "mixed"
   },
-  "interactivityType":"mixed",
   "hasPart":[
     {
-      "id":"https://felixlohmeier.gitbooks.io/kurs-bibliotheks-und-archivinformatik/kapitel-1.html",
+      "@id":"https://felixlohmeier.gitbooks.io/kurs-bibliotheks-und-archivinformatik/kapitel-1.html",
       "name":"Kapitel 1: Einführung ins Thema, Installation der Arbeitsumgebung und eine Wiederholung in Metadatenstandards"
     },
     {
-      "id":"https://felixlohmeier.gitbooks.io/kurs-bibliotheks-und-archivinformatik/kapitel-2.html",
+      "@id":"https://felixlohmeier.gitbooks.io/kurs-bibliotheks-und-archivinformatik/kapitel-2.html",
       "name":"Kapitel 2: Bibliotheks- und Archivsysteme"
     },
     {
-      "id":"https://felixlohmeier.gitbooks.io/kurs-bibliotheks-und-archivinformatik/kapitel-3.html",
+      "@id":"https://felixlohmeier.gitbooks.io/kurs-bibliotheks-und-archivinformatik/kapitel-3.html",
       "name":"Kapitel 3: Übertragungsprotokolle und Crosswalks"
     },
     {
-      "id":"https://felixlohmeier.gitbooks.io/kurs-bibliotheks-und-archivinformatik/kapitel-4.html",
+      "@id":"https://felixlohmeier.gitbooks.io/kurs-bibliotheks-und-archivinformatik/kapitel-4.html",
       "name":"Kapitel 4: Suchmaschinen, Modellierung für Meta-Suche"
     },
     {
-      "id":"https://felixlohmeier.gitbooks.io/kurs-bibliotheks-und-archivinformatik/kapitel-5.html",
+      "@id":"https://felixlohmeier.gitbooks.io/kurs-bibliotheks-und-archivinformatik/kapitel-5.html",
       "name":"Kapitel 5: Katalogsoftware und Suchmaschinenoptimierung"
     },
     {
-      "id":"https://felixlohmeier.gitbooks.io/kurs-bibliotheks-und-archivinformatik/kapitel-6.html",
+      "@id":"https://felixlohmeier.gitbooks.io/kurs-bibliotheks-und-archivinformatik/kapitel-6.html",
       "name":"Kapitel 6: Metadaten in Publikationsrepositorien und Digitalisierungsplattformen"
     },
     {
-      "id":"https://felixlohmeier.gitbooks.io/kurs-bibliotheks-und-archivinformatik/kapitel-7.html",
+      "@id":"https://felixlohmeier.gitbooks.io/kurs-bibliotheks-und-archivinformatik/kapitel-7.html",
       "name":"Kapitel 7: Linked Data, weitere Metadatenstandards, Abschluss"
     }
   ],

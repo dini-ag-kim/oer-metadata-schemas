@@ -300,10 +300,10 @@
           "format":"uri"
         },
         "startDate":{
-          "$ref":"definitions/iso-8601-date"
+          "$ref":"#/definitions/iso-8601-date"
         },
         "endDate":{
-          "$ref":"definitions/iso-8601-date"
+          "$ref":"#/definitions/iso-8601-date"
         },
         "courseMode":{
           "type":"string"

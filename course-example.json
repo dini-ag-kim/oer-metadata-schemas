@@ -70,7 +70,7 @@
     }
   ],
   "interactivityType": {
-    "@id": "http://purl.org/dcx/lrmi-vocabs/interactivityType/",
+    "@id": "http://purl.org/dcx/lrmi-vocabs/interactivityType/mixed",
     "@type": "Concept",
     "name": "mixed"
   },

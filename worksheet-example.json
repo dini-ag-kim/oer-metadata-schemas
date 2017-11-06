@@ -1,0 +1,99 @@
+{
+  "@context": "http://schema.org/",
+  "@type": "Course",
+  "@id": "https://www.tutory.de/w/028be730",
+  "name": "Suhad hat heute wieder Fahrstunde",
+  "creator": [
+    {
+      "name": "Susa Karnick",
+      "@id": "https://www.tutory.de/user/Anna%20Achmatova",
+      "@type": "Person"
+    }
+  ],
+  "description": "Arbeitsblatt für den DaZ-Unterricht in einem Projekt, in dem sich die Teilnehmerinnen gerade auf die praktische Führerscheinprüfung vorbereiten.",
+  "educationalAlignment": [
+    {
+      "@type": "AlignmentObject",
+      "alignmentType": "educationalSubject",
+      "educationalFramework": {
+        "name": "Educational Subject Classification",
+        "@id": "https://w3id.org/class/esc/scheme"
+      },
+      "targetName": "Spracherwerb Deutsch",
+      "targetUrl": {
+        "name": [
+          {
+            "@value": "Spracherwerb Deutsch",
+            "@language": "de"
+          },
+          {
+            "@value": "Language acquisition – German",
+            "@language": "en"
+          }
+        ],
+        "@id": "https://w3id.org/class/esc/n0231-de",
+        "@type": "Concept"
+      }
+    },
+    {
+      "@type": "AlignmentObject",
+      "alignmentType": "educationalSubject",
+      "educationalFramework": {
+        "name": "ISCED 1997",
+        "@id": "https://w3id.org/isced/1997/scheme"
+      },
+      "targetName": "Bildung im Anschluß an die Schule außerhalb der Hochschule",
+      "targetUrl": {
+        "name": [
+          {
+            "@value": "Post-secondary non-tertiary education",
+            "@language": "en"
+          },
+          {
+            "@value": "Bildung im Anschluß an die Schule außerhalb der Hochschule",
+            "@language": "de"
+          }
+        ],
+        "notation": [
+          "ISCED-1997:4"
+        ],
+        "@id": "https://w3id.org/isced/1997/level4",
+        "@type": "Concept"
+      }
+    }
+  ],
+  "datePublished": "2016-09-32",
+  "timeRequired": "20 min",
+  "typicalAgeRange": "17-22",
+  "audience": [
+    {
+      "type": "EducationalAudience",
+      "educationalRole": {
+        "@id": "http://purl.org/dcx/lrmi-vocabs/educationalAudienceRole/student",
+        "name": "student"
+      }
+    }
+  ],
+  "interactivityType": {
+    "@id": "http://purl.org/dcx/lrmi-vocabs/interactivityType/expositive",
+    "@type": "Concept",
+    "name": "expositive"
+  },
+  "license": [
+    {
+      "@id": "https://oerworldmap.org/assets/json/licenses.json#cc-by-sa",
+      "@type": "Concept",
+      "name": [
+        {
+          "@value": "Creative Commons Attribution Share-Alike",
+          "@language": "en"
+        },
+        {
+          "@value": "Creative Commons Namensnennung, Weitergabe unter gleichen Bedingungen",
+          "@language": "de"
+        }
+      ],
+      "image": "http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-sa.png"
+    }
+  ]
+}

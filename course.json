@@ -185,23 +185,30 @@
                     ]
                   },
                   "educationalRole":{
-                    "type":"object",
-                    "properties":{
-                      "inScheme":{
-                        "type":"object",
+                    "allOf":[
+                      {
+                        "$ref":"#/definitions/Link"
+                      },
+                      {
                         "properties":{
-                          "@id":{
+                          "@type":{
                             "enum":[
-                              "http://purl.org/dcx/lrmi-vocabs/educationalAudienceRole/"
+                              "Concept"
                             ]
+                          },
+                          "inScheme":{
+                            "type":"object",
+                            "properties":{
+                              "@id":{
+                                "enum":[
+                                  "http://purl.org/dcx/lrmi-vocabs/educationalAudienceRole/"
+                                ]
+                              }
+                            }
                           }
                         }
-                      },
-                      "@id":{
-                        "type":"string",
-                        "format":"url"
                       }
-                    }
+                    ]
                   }
                 }
               }

@@ -104,33 +104,30 @@
           "format":"uri"
         },
         "license":{
-          "type":"array",
-          "items":{
-            "allOf":[
-              {
-                "$ref":"#/definitions/Link"
-              },
-              {
-                "properties":{
-                  "@type":{
-                    "enum":[
-                      "Concept"
-                    ]
-                  },
-                  "inScheme":{
-                    "type":"object",
-                    "properties":{
-                      "@id":{
-                        "enum":[
-                          "https://oerworldmap.org/assets/json/licenses.json"
-                        ]
-                      }
+          "allOf":[
+            {
+              "$ref":"#/definitions/Link"
+            },
+            {
+              "properties":{
+                "@type":{
+                  "enum":[
+                    "Concept"
+                  ]
+                },
+                "inScheme":{
+                  "type":"object",
+                  "properties":{
+                    "@id":{
+                      "enum":[
+                        "https://oerworldmap.org/assets/json/licenses.json"
+                      ]
                     }
                   }
                 }
               }
-            ]
-          }
+            }
+          ]
         },
         "educationalCredentialAwarded":{
           "type":"string"

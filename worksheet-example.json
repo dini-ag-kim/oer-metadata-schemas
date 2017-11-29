@@ -37,7 +37,7 @@
     },
     {
       "@type": "AlignmentObject",
-      "alignmentType": "educationalSubject",
+      "alignmentType": "educationalLevel",
       "educationalFramework": {
         "name": "ISCED 1997",
         "@id": "https://w3id.org/isced/1997/scheme"

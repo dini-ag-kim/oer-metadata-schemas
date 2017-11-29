@@ -1,6 +1,6 @@
 {
   "@context": "http://schema.org/",
-  "@type": "Course",
+  "@type": "CreativeWork",
   "@id": "https://www.tutory.de/w/028be730",
   "name": "Suhad hat heute wieder Fahrstunde",
   "creator": [

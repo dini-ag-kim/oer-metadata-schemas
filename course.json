@@ -1,5 +1,5 @@
 {
-  "@id": "course.json#",
+  "@id": "https://raw.githubusercontent.com/dini-ag-kim/oer-metadata-schemas/master/course.json",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "allOf": [
     {

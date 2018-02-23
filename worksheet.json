@@ -1,0 +1,344 @@
+{
+  "@id": "https://raw.githubusercontent.com/dini-ag-kim/oer-metadata-schemas/master/worksheet.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "allOf": [
+    {
+      "$ref": "#/definitions/Worksheet"
+    }
+  ],
+  "definitions": {
+    "Worksheet": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "title": "Worksheet",
+      "description": "A worksheet for educational purposes",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "string",
+          "format": "uri",
+          "enum": [
+            "http://schema.org/"
+          ],
+          "_display": {
+            "className": "hidden"
+          }
+        },
+        "@id": {
+          "description": "The worksheet's unique identifier",
+          "type": "string",
+          "format": "uri",
+          "_display": {
+            "className": "hidden"
+          }
+        },
+        "@type": {
+          "type": "string",
+          "enum": [
+            "CreativeWork"
+          ],
+          "_display": {
+            "className": "hidden"
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "creator": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "@type": {
+                "type": "string",
+                "enum": [
+                  "Person",
+                  "Organization"
+                ]
+              },
+              "@id": {
+                "type": "string",
+                "format": "uri"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "@id"
+            ]
+          }
+        },
+        "description": {
+          "type": "string",
+          "_display": {
+            "rows": 5
+          }
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "license": {
+          "properties": {
+            "@type": {
+              "enum": [
+                "Concept"
+              ]
+            },
+            "@id": {
+              "description": "The subject's unique identifier",
+              "type": "string",
+              "format": "uri"
+            },
+            "inScheme": {
+              "type": "object",
+              "properties": {
+                "@id": {
+                  "enum": [
+                    "https://oerworldmap.org/assets/json/licenses.json"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "datePublished": {
+          "$ref": "#/definitions/iso-8601-date"
+        },
+        "educationalAlignment": {
+          "type": "array",
+          "items": {
+            "properties": {
+              "@type": {
+                "enum": [
+                  "AlignmentObject"
+                ]
+              },
+              "@id": {
+                "description": "The subject's unique identifier",
+                "type": "string",
+                "format": "uri"
+              },
+							"alignmentType": {
+								"enum": [
+									"educationalSubject",
+									"educationalLevel"
+								]
+							},
+							"educationalFramework": {
+								"oneOf": [
+									{
+										"type":"string",
+										"format": "uri"
+									},
+									{
+										"type": "object",
+										"properties": {
+											"@id": {
+												"type": "string",
+												"format": "uri"
+											},
+											"name": {
+												"type": "string"
+											}
+										}
+									}
+								]
+							},
+							"targetName": {
+								"type": "string"
+							},
+							"targetUrl": {
+			          "type": "object",
+		            "properties": {
+		              "@type": {
+		                "enum": [
+		                  "Concept"
+		                ]
+		              },
+		              "@id": {
+		                "description": "The subject's unique identifier",
+		                "type": "string",
+		                "format": "uri"
+		              },
+									"notation": {
+										"type": "string"
+									}
+		            }
+			        }
+            }
+          }
+        },
+        "equired": {
+          "type": "string"
+        },
+        "typicalAgeRange": {
+          "type": "string"
+        },
+        "audience": {
+          "type": "array",
+          "items": {
+            "properties": {
+              "@type": {
+                "enum": [
+                  "EducationalAudience"
+                ]
+              },
+              "@id": {
+                "description": "The unique identifier for the audience type",
+                "type": "string",
+                "format": "uri"
+              },
+              "educationalRole": {
+                "properties": {
+                  "@type": {
+                    "enum": [
+                      "Concept"
+                    ]
+                  },
+                  "inScheme": {
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "enum": [
+                          "http://purl.org/dcx/lrmi-vocabs/educationalAudienceRole/"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "interactivityType": {
+          "properties": {
+            "@type": {
+              "enum": [
+                "Concept"
+              ]
+            },
+            "@id": {
+              "description": "The unique identifier for the interactivity type",
+              "type": "string",
+              "format": "uri"
+            },
+            "inScheme": {
+              "type": "object",
+              "properties": {
+                "@id": {
+                  "enum": [
+                    "http://purl.org/dcx/lrmi-vocabs/interactivityType/"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "hasCourseInstance": {
+          "description": "An instance of the course being held",
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "#/definitions/CourseInstance"
+              }
+            ]
+          }
+        },
+        "hasPart": {
+          "description": "A part of the course",
+          "type": "array",
+          "items": {
+            "properties": {
+              "@type": {
+                "enum": [
+                  "CreativeWork"
+                ]
+              },
+              "@id": {
+                "type": "string",
+                "format": "url"
+              },
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "CourseInstance": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "title": "Course Instance",
+      "description": "An instance of a course",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "string",
+          "format": "uri"
+        },
+        "@id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "@type": {
+          "type": "string",
+          "enum": [
+            "CourseInstance"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "startDate": {
+          "$ref": "#/definitions/iso-8601-date"
+        },
+        "endDate": {
+          "$ref": "#/definitions/iso-8601-date"
+        },
+        "courseMode": {
+          "type": "string"
+        },
+        "offers": {
+          "type": "object",
+          "properties": {
+            "@type": {
+              "enum": [
+                "Offer"
+              ]
+            },
+            "offeredBy": {
+              "type": "object",
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "iso-8601-date": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "title": "ISO 8601 Date",
+      "description": "A date in ISO 8601 format.",
+      "type": "string",
+      "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$"
+    }
+  }
+}

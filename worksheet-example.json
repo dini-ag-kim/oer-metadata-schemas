@@ -20,7 +20,7 @@
         "@id": "https://w3id.org/class/esc/scheme"
       },
       "targetName": "Spracherwerb Deutsch",
-      "target": {
+      "targetUrl": {
         "name": [
           {
             "@value": "Spracherwerb Deutsch",

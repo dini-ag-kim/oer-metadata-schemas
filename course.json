@@ -1,5 +1,5 @@
 {
-  "@id":"#",
+  "@id":"course.json#",
   "$schema":"http://json-schema.org/draft-04/schema#",
   "allOf":[
     {
@@ -104,16 +104,16 @@
           "format":"uri"
         },
         "license":{
-          "allOf":[
-            {
-              "$ref":"#/definitions/Link"
-            },
-            {
               "properties":{
                 "@type":{
                   "enum":[
                     "Concept"
                   ]
+                },
+                "@id":{
+                  "description":"The subject's unique identifier",
+                  "type":"string",
+                  "format":"uri"
                 },
                 "inScheme":{
                   "type":"object",
@@ -126,8 +126,6 @@
                   }
                 }
               }
-            }
-          ]
         },
         "educationalCredentialAwarded":{
           "type":"string"
@@ -138,16 +136,16 @@
         "about":{
           "type":"array",
           "items":{
-            "allOf":[
-              {
-                "$ref":"#/definitions/Link"
-              },
-              {
                 "properties":{
                   "@type":{
                     "enum":[
                       "Concept"
                     ]
+                  },
+                  "@id":{
+                    "description":"The subject's unique identifier",
+                    "type":"string",
+                    "format":"uri"
                   },
                   "inScheme":{
                     "type":"object",
@@ -160,8 +158,6 @@
                     }
                   }
                 }
-              }
-            ]
           }
         },
         "timeRequired":{
@@ -173,20 +169,18 @@
         "audience":{
           "type":"array",
           "items":{
-            "allOf":[
-              {
                 "properties":{
                   "@type":{
                     "enum":[
                       "EducationalAudience"
                     ]
                   },
+                  "@id":{
+                    "description":"The unique identifier for the audience type",
+                    "type":"string",
+                    "format":"uri"
+                  },
                   "educationalRole":{
-                    "allOf":[
-                      {
-                        "$ref":"#/definitions/Link"
-                      },
-                      {
                         "properties":{
                           "@type":{
                             "enum":[
@@ -204,25 +198,21 @@
                             }
                           }
                         }
-                      }
-                    ]
                   }
                 }
-              }
-            ]
           }
         },
         "interactivityType":{
-          "allOf":[
-            {
-              "$ref":"#/definitions/Link"
-            },
-            {
               "properties":{
                 "@type":{
                   "enum":[
                     "Concept"
                   ]
+                },
+                "@id":{
+                  "description":"The unique identifier for the interactivity type",
+                  "type":"string",
+                  "format":"uri"
                 },
                 "inScheme":{
                   "type":"object",
@@ -235,8 +225,6 @@
                   }
                 }
               }
-            }
-          ]
         },
         "hasCourseInstance":{
           "description":"An instance of the course being held",
@@ -253,8 +241,6 @@
           "description":"A part of the course",
           "type":"array",
           "items":{
-            "allOf":[
-              {
                 "properties":{
                   "@type":{
                     "enum":[
@@ -269,8 +255,6 @@
                     "type":"string"
                   }
                 }
-              }
-            ]
           }
         }
       }

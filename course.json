@@ -1,244 +1,236 @@
 {
   "@id": "https://raw.githubusercontent.com/dini-ag-kim/oer-metadata-schemas/master/course.json",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "allOf": [
-    {
-      "$ref": "#/definitions/Course"
-    }
-  ],
-  "definitions": {
-    "Course": {
-      "$schema": "http://json-schema.org/draft-04/schema#",
-      "title": "Course",
-      "description": "An educational course",
-      "type": "object",
-      "properties": {
-        "@context": {
-          "type": "string",
-          "format": "uri",
-          "enum": [
-            "http://schema.org/"
-          ],
-          "_display": {
-            "className": "hidden"
+  "title": "Course",
+  "description": "An educational course",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "format": "uri",
+      "enum": [
+        "http://schema.org/"
+      ],
+      "_display": {
+        "className": "hidden"
+      }
+    },
+    "@id": {
+      "description": "The course's unique identifier",
+      "type": "string",
+      "format": "uri",
+      "_display": {
+        "className": "hidden"
+      }
+    },
+    "@type": {
+      "type": "string",
+      "enum": [
+        "Course"
+      ],
+      "_display": {
+        "className": "hidden"
+      }
+    },
+    "name": {
+      "type": "string"
+    },
+    "creator": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "@type": {
+            "type": "string",
+            "enum": [
+              "Person",
+              "Organization"
+            ]
+          },
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "name": {
+            "type": "string"
           }
+        },
+        "required": [
+          "name",
+          "@id"
+        ]
+      }
+    },
+    "description": {
+      "type": "string",
+      "_display": {
+        "rows": 5
+      }
+    },
+    "logo": {
+      "type": "string",
+      "format": "uri"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "license": {
+      "properties": {
+        "@type": {
+          "enum": [
+            "Concept"
+          ]
         },
         "@id": {
-          "description": "The course's unique identifier",
+          "description": "The subject's unique identifier",
           "type": "string",
-          "format": "uri",
-          "_display": {
-            "className": "hidden"
+          "format": "uri"
+        },
+        "inScheme": {
+          "type": "object",
+          "properties": {
+            "@id": {
+              "enum": [
+                "https://oerworldmap.org/assets/json/licenses.json"
+              ]
+            }
           }
-        },
-        "@type": {
-          "type": "string",
-          "enum": [
-            "Course"
-          ],
-          "_display": {
-            "className": "hidden"
-          }
-        },
-        "name": {
-          "type": "string"
-        },
-        "creator": {
-          "type": "array",
-          "items": {
+        }
+      }
+    },
+    "educationalCredentialAwarded": {
+      "type": "string"
+    },
+    "datePublished": {
+      "$ref": "#/definitions/iso-8601-date"
+    },
+    "about": {
+      "type": "array",
+      "items": {
+        "properties": {
+          "@type": {
+            "enum": [
+              "Concept"
+            ]
+          },
+          "@id": {
+            "description": "The subject's unique identifier",
+            "type": "string",
+            "format": "uri"
+          },
+          "inScheme": {
             "type": "object",
             "properties": {
-              "@type": {
-                "type": "string",
-                "enum": [
-                  "Person",
-                  "Organization"
-                ]
-              },
               "@id": {
-                "type": "string",
-                "format": "uri"
-              },
-              "name": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "name",
-              "@id"
-            ]
-          }
-        },
-        "description": {
-          "type": "string",
-          "_display": {
-            "rows": 5
-          }
-        },
-        "logo": {
-          "type": "string",
-          "format": "uri"
-        },
-        "url": {
-          "type": "string",
-          "format": "uri"
-        },
-        "license": {
-          "properties": {
-            "@type": {
-              "enum": [
-                "Concept"
-              ]
-            },
-            "@id": {
-              "description": "The subject's unique identifier",
-              "type": "string",
-              "format": "uri"
-            },
-            "inScheme": {
-              "type": "object",
-              "properties": {
-                "@id": {
-                  "enum": [
-                    "https://oerworldmap.org/assets/json/licenses.json"
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "educationalCredentialAwarded": {
-          "type": "string"
-        },
-        "datePublished": {
-          "$ref": "#/definitions/iso-8601-date"
-        },
-        "about": {
-          "type": "array",
-          "items": {
-            "properties": {
-              "@type": {
                 "enum": [
-                  "Concept"
+                  "https://w3id.org/class/esc/scheme"
                 ]
-              },
-              "@id": {
-                "description": "The subject's unique identifier",
-                "type": "string",
-                "format": "uri"
-              },
-              "inScheme": {
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "enum": [
-                      "https://w3id.org/class/esc/scheme"
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        },
-        "timeRequired": {
-          "type": "string"
-        },
-        "typicalAgeRange": {
-          "type": "string"
-        },
-        "audience": {
-          "type": "array",
-          "items": {
-            "properties": {
-              "@type": {
-                "enum": [
-                  "EducationalAudience"
-                ]
-              },
-              "@id": {
-                "description": "The unique identifier for the audience type",
-                "type": "string",
-                "format": "uri"
-              },
-              "educationalRole": {
-                "properties": {
-                  "@type": {
-                    "enum": [
-                      "Concept"
-                    ]
-                  },
-                  "inScheme": {
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "enum": [
-                          "http://purl.org/dcx/lrmi-vocabs/educationalAudienceRole/"
-                        ]
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "interactivityType": {
-          "properties": {
-            "@type": {
-              "enum": [
-                "Concept"
-              ]
-            },
-            "@id": {
-              "description": "The unique identifier for the interactivity type",
-              "type": "string",
-              "format": "uri"
-            },
-            "inScheme": {
-              "type": "object",
-              "properties": {
-                "@id": {
-                  "enum": [
-                    "http://purl.org/dcx/lrmi-vocabs/interactivityType/"
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "hasCourseInstance": {
-          "description": "An instance of the course being held",
-          "type": "array",
-          "items": {
-            "allOf": [
-              {
-                "$ref": "#/definitions/CourseInstance"
-              }
-            ]
-          }
-        },
-        "hasPart": {
-          "description": "A part of the course",
-          "type": "array",
-          "items": {
-            "properties": {
-              "@type": {
-                "enum": [
-                  "CreativeWork"
-                ]
-              },
-              "@id": {
-                "type": "string",
-                "format": "url"
-              },
-              "name": {
-                "type": "string"
               }
             }
           }
         }
       }
     },
+    "timeRequired": {
+      "type": "string"
+    },
+    "typicalAgeRange": {
+      "type": "string"
+    },
+    "audience": {
+      "type": "array",
+      "items": {
+        "properties": {
+          "@type": {
+            "enum": [
+              "EducationalAudience"
+            ]
+          },
+          "@id": {
+            "description": "The unique identifier for the audience type",
+            "type": "string",
+            "format": "uri"
+          },
+          "educationalRole": {
+            "properties": {
+              "@type": {
+                "enum": [
+                  "Concept"
+                ]
+              },
+              "inScheme": {
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "enum": [
+                      "http://purl.org/dcx/lrmi-vocabs/educationalAudienceRole/"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "interactivityType": {
+      "properties": {
+        "@type": {
+          "enum": [
+            "Concept"
+          ]
+        },
+        "@id": {
+          "description": "The unique identifier for the interactivity type",
+          "type": "string",
+          "format": "uri"
+        },
+        "inScheme": {
+          "type": "object",
+          "properties": {
+            "@id": {
+              "enum": [
+                "http://purl.org/dcx/lrmi-vocabs/interactivityType/"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "hasCourseInstance": {
+      "description": "An instance of the course being held",
+      "type": "array",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/CourseInstance"
+          }
+        ]
+      }
+    },
+    "hasPart": {
+      "description": "A part of the course",
+      "type": "array",
+      "items": {
+        "properties": {
+          "@type": {
+            "enum": [
+              "CreativeWork"
+            ]
+          },
+          "@id": {
+            "type": "string",
+            "format": "url"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
     "CourseInstance": {
       "$schema": "http://json-schema.org/draft-04/schema#",
       "title": "Course Instance",

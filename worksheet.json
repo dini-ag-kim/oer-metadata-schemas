@@ -120,7 +120,7 @@
           "educationalFramework": {
             "oneOf": [
               {
-                "type":"string",
+                "type": "string",
                 "format": "uri"
               },
               {
@@ -228,7 +228,7 @@
       }
     }
   },
-"definitions": {
+  "definitions": {
     "iso-8601-date": {
       "$schema": "http://json-schema.org/draft-04/schema#",
       "title": "ISO 8601 Date",

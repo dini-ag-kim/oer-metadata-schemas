@@ -1,0 +1,56 @@
+{
+  "@context":"http://schema.org/",
+  "id":"http://oerworldmap.org/resource/urn:uuid:d6e33424-9234-46ba-9118-43db67e0f1ce",
+  "type":"Service",
+  "name":"tutory.de",
+  "logo":"https://www.tutory.de/static/images/logo_full_right.png",
+  "description":"tutory ist ein Online-Editor für Dokumente, der speziell auf die Eigenschaften von offenen Lehr- und Lernmaterial (OER) zugeschnitten ist. Im Handumdrehen können Lehrende mit tutory gut aussehende Materialien erstellen, individualisieren, organisieren und anderen zur Verfügung stellen.",
+  "provider":[
+    {
+      "id":"http://oerworldmap.org/resource/urn:uuid:90e1068a-00d4-41d7-a8d4-0f9420fadb15",
+      "type":"Organization",
+      "name":"tutory UG (haftungsbeschränkt)",
+      "location":{
+        "type": "Place",
+        "geo":{
+          "lon":12.328219,
+          "lat":51.333553
+        },
+        "address":{
+          "type": "PostalAddress",
+          "addressCountry":"DE",
+          "streetAddress":"Endersstraße 33",
+          "postalCode":"4177",
+          "addressLocality":"Leipzig"
+        }
+      }
+    }
+  ],
+  "startDate":"2015-02-05",
+  "availableChannel":[
+    {
+      "serviceUrl":"https://www.tutory.de/",
+      "type":"ServiceChannel",
+      "additionalType":"WebSite",
+      "availableLanguage":[
+        "de"
+      ]
+    },
+    {
+      "type":"ServiceChannel",
+      "additionalType":"WebAPI",
+      "serviceUrl":"https://www.tutory.de/api/v1/search/worksheet"
+    }
+  ],
+  "license":[
+    "https://oerworldmap.org/assets/json/licenses.json#cc-by",
+    "https://oerworldmap.org/assets/json/licenses.json#cc-by-sa",
+    "https://oerworldmap.org/assets/json/licenses.json#cc0"
+  ],
+  "email":"info@tutory.de",
+  "sameAs":[
+    "https://www.facebook.com/tutory.de",
+    "http://github.com/tutory",
+    "https://twitter.com/tutoryde"
+  ]
+}

@@ -161,7 +161,7 @@
         }
       }
     },
-    "equired": {
+    "required": {
       "type": "string"
     },
     "typicalAgeRange": {

@@ -1,0 +1,287 @@
+{
+  "$schema":"http://json-schema.org/draft-04/schema#",
+  "title":"OER Service",
+  "description":"A service providing OER content or OER-related functionalities on the web",
+  "type":"object",
+  "properties":{
+    "@context":{
+      "type":"string",
+      "format":"uri",
+      "enum":[
+        "http://schema.org/"
+      ],
+      "_display":{
+        "className":"hidden"
+      }
+    },
+    "id":{
+      "description":"The service's unique identifier",
+      "type":"string",
+      "format":"uri",
+      "_display":{
+        "className":"hidden"
+      }
+    },
+    "type":{
+      "type":"string",
+      "enum":[
+        "Service"
+      ],
+      "_display":{
+        "className":"hidden"
+      }
+    },
+    "name":{
+      "type":"string"
+    },
+    "description":{
+      "type":"string",
+      "_display":{
+        "rows":5
+      }
+    },
+    "provider":{
+      "type":"array",
+      "items":{
+        "type":"object",
+        "properties":{
+          "type":{
+            "type":"string",
+            "enum":[
+              "Person",
+              "Organization"
+            ]
+          },
+          "id":{
+            "type":"string",
+            "format":"uri"
+          },
+          "name":{
+            "type":"string"
+          },
+          "location":{
+            "type":"object",
+            "properties":{
+              "type":{
+                "type":"string",
+                "enum":[
+                  "Place"
+                ]
+              },
+              "geo":{
+                "type":"object",
+                "properties":{
+                  "lat":{
+                    "title":"Geo Coordinates, latitude",
+                    "type":"number"
+                  },
+                  "lon":{
+                    "title":"Geo Coordinates, longitude",
+                    "type":"number"
+                  }
+                }
+              },
+              "address":{
+                "type":"object",
+                "properties":{
+                  "type":{
+                    "type":"string",
+                    "enum":[
+                      "PostalAddress"
+                    ]
+                  },
+                  "streetAddress":{
+                    "title":"Straße",
+                    "type":"string"
+                  },
+                  "postalCode":{
+                    "title":"Postleitzahl",
+                    "type":"string"
+                  },
+                  "postOfficeBoxNumber":{
+                    "title":"Postfach",
+                    "type":"string"
+                  },
+                  "addressLocality":{
+                    "title":"Ort",
+                    "type":"string"
+                  },
+                  "addressCountry":{
+                    "title":"Country",
+                    "description":"A country, represented by its ISO country code",
+                    "type":"string",
+                    "enum":[
+                      "AT",
+                      "CH",
+                      "DE"
+                    ]
+                  }
+                },
+                "additionalProperties":false
+              }
+            }
+          }
+        },
+        "required":[
+          "name"
+        ]
+      }
+    },
+    "startDate":{
+      "title": "Start-Datum",
+      "description": "Start-Datum des Services im ISO-8601-Format",
+      "type":"string",
+      "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$"
+    },
+    "license":{
+      "properties":{
+        "@type":{
+          "enum":[
+            "Concept"
+          ]
+        },
+        "id":{
+          "description":"The license type's unique identifier",
+          "type":"string",
+          "format":"uri"
+        },
+        "inScheme":{
+          "type":"object",
+          "properties":{
+            "@id":{
+              "enum":[
+                "https://oerworldmap.org/assets/json/licenses.json"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "sameAs": {
+          "title": "Siehe auch",
+          "description": "Link zu anderen Profilen des Services",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+    "educationalAlignment":{
+      "type":"array",
+      "items":{
+        "properties":{
+          "@type":{
+            "enum":[
+              "AlignmentObject"
+            ]
+          },
+          "@id":{
+            "description":"The subject's unique identifier",
+            "type":"string",
+            "format":"uri"
+          },
+          "alignmentType":{
+            "enum":[
+              "educationalSubject",
+              "educationalLevel"
+            ]
+          },
+          "educationalFramework":{
+            "oneOf":[
+              {
+                "type":"string",
+                "format":"uri"
+              },
+              {
+                "type":"object",
+                "properties":{
+                  "@id":{
+                    "type":"string",
+                    "format":"uri"
+                  },
+                  "name":{
+                    "type":"string"
+                  }
+                }
+              }
+            ]
+          },
+          "targetName":{
+            "type":"string"
+          },
+          "targetUrl":{
+            "type":"object",
+            "properties":{
+              "@type":{
+                "enum":[
+                  "Concept"
+                ]
+              },
+              "@id":{
+                "description":"The subject's unique identifier",
+                "type":"string",
+                "format":"uri"
+              },
+              "notation":{
+                "type":"string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "audience":{
+      "type":"array",
+      "items":{
+        "properties":{
+          "@type":{
+            "enum":[
+              "EducationalAudience"
+            ]
+          },
+          "@id":{
+            "description":"The unique identifier for the audience type",
+            "type":"string",
+            "format":"uri"
+          },
+          "educationalRole":{
+            "properties":{
+              "@type":{
+                "enum":[
+                  "Concept"
+                ]
+              },
+              "inScheme":{
+                "type":"object",
+                "properties":{
+                  "@id":{
+                    "enum":[
+                      "http://purl.org/dcx/lrmi-vocabs/educationalAudienceRole/"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Country":{
+      "$schema":"http://json-schema.org/draft-04/schema#",
+      "title":"Country",
+      "description":"A country, represented by its ISO country code",
+      "type":"string",
+      "enum":[
+        "AT",
+        "CH",
+        "DE"
+      ]
+    }
+  }
+}

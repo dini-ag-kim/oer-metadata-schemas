@@ -1,56 +1,89 @@
 {
-  "@context":"http://schema.org/",
-  "id":"http://oerworldmap.org/resource/urn:uuid:d6e33424-9234-46ba-9118-43db67e0f1ce",
-  "type":"Service",
-  "name":"tutory.de",
-  "logo":"https://www.tutory.de/static/images/logo_full_right.png",
-  "description":"tutory ist ein Online-Editor für Dokumente, der speziell auf die Eigenschaften von offenen Lehr- und Lernmaterial (OER) zugeschnitten ist. Im Handumdrehen können Lehrende mit tutory gut aussehende Materialien erstellen, individualisieren, organisieren und anderen zur Verfügung stellen.",
-  "provider":[
-    {
-      "id":"http://oerworldmap.org/resource/urn:uuid:90e1068a-00d4-41d7-a8d4-0f9420fadb15",
-      "type":"Organization",
-      "name":"tutory UG (haftungsbeschränkt)",
-      "location":{
-        "type": "Place",
-        "geo":{
-          "lon":12.328219,
-          "lat":51.333553
-        },
-        "address":{
-          "type": "PostalAddress",
-          "addressCountry":"DE",
-          "streetAddress":"Endersstraße 33",
-          "postalCode":"4177",
-          "addressLocality":"Leipzig"
-        }
+   "@context":"http://schema.org/",
+   "id":"https://playground.oer-contentbuffet.info/edu-sharing/",
+   "type":"Service",
+   "name":"Jointly OER Playground",
+   "url":"https://playground.oer-contentbuffet.info/edu-sharing/",
+   "image":"https://playground.oer-contentbuffet.info/edu-sharing/assets/images/sources/home.png",
+   "logo":"https://playground.oer-contentbuffet.info/edu-sharing/assets/images/edu-white-alpha.svg",
+   "inLanguage":[
+      "de",
+      "en"
+   ],
+   "description":"Das Verbundprojekt JOINTLY unterstützt OER-Akteure bei der Entwicklung und Verbreitung ihrer offenen Bildungsmaterialien. Es vermittelt die Beratung durch ExpertInnen zu Recht, Produktion, Didaktik und IT und organisiert Kooperationsaktivitäten zwischen OER-Akteuren. JOINTLY entwickelt gemeinschaftlich OER-förderliche Softwarewerkzeuge sowie Arbeits- und Vertriebsinstrumente.",
+   "additionalType":"Repository",
+   "audience":[
+      {
+         "type":"EducationalAudience",
+         "educationalRole": {
+           "id": "http://purl.org/dcx/lrmi-vocabs/educationalAudienceRole/teacher",
+           "label": "Teacher"
+         }
+      },
+      {
+         "type":"EducationalAudience",
+         "educationalRole": {
+           "id": "http://purl.org/dcx/lrmi-vocabs/educationalAudienceRole/peerTutor",
+           "label": "Peer Tutor"
+           }
       }
-    }
-  ],
-  "startDate":"2015-02-05",
-  "availableChannel":[
-    {
-      "serviceUrl":"https://www.tutory.de/",
-      "type":"ServiceChannel",
-      "additionalType":"WebSite",
-      "availableLanguage":[
-        "de"
-      ]
-    },
-    {
-      "type":"ServiceChannel",
-      "additionalType":"WebAPI",
-      "serviceUrl":"https://www.tutory.de/api/v1/search/worksheet"
-    }
-  ],
-  "license":[
-    "https://oerworldmap.org/assets/json/licenses.json#cc-by",
-    "https://oerworldmap.org/assets/json/licenses.json#cc-by-sa",
-    "https://oerworldmap.org/assets/json/licenses.json#cc0"
-  ],
-  "email":"info@tutory.de",
-  "sameAs":[
-    "https://www.facebook.com/tutory.de",
-    "http://github.com/tutory",
-    "https://twitter.com/tutoryde"
-  ]
+   ],
+   "about": {
+     "id": "https://w3id.org/class/esc/n0541",
+    "label": "Mathematik"
+   },
+   "isAccessibleForFree":true,
+   "provider":[
+      {
+         "type":"Organization",
+         "name":"JOINTLY – Qualifizierung und kooperative Unterstützung für OER – ein Buffet der Kooperation",
+         "email":"info@jointly.info",
+         "location":{
+            "type":"Place",
+            "geo":{
+               "longitude":11.3271834,
+               "latitude":50.9736279
+            },
+            "address":{
+               "type":"PostalAddress",
+               "addressCountry":"DE",
+               "streetAddress":"Bauhausstraße 7c",
+               "postalCode":"99423",
+               "addressLocality":"Weimar"
+            }
+         }
+      }
+   ],
+   "startDate":"2017-06-01",
+   "availableChannel":[
+      {
+         "type":"ServiceChannel",
+         "additionalType":"OAI-PMH Interface",
+         "serviceUrl":"https://playground.oer-contentbuffet.info/oai",
+         "availableLanguage":[
+            "de",
+            "en"
+         ]
+      },
+      {
+         "type":"ServiceChannel",
+         "additionalType":"WebAPI",
+         "serviceUrl":"https://playground.oer-contentbuffet.info/edu-sharing/rest",
+         "availableLanguage":[
+            "de",
+            "en"
+         ],
+         "documentation":"https://playground.oer-contentbuffet.info/edu-sharing/swagger/index.html"
+      }
+   ],
+   "license":[
+      "https://creativecommons.org/licenses/by-sa/4.0/deed.de",
+      "https://creativecommons.org/licenses/by/4.0/deed.de"
+   ],
+   "version":"1",
+   "dateModified":"2019-01-22",
+   "sameAs":[
+      "https://jointly.info/",
+      "https://twitter.com/OER_JOINTLY"
+   ]
 }

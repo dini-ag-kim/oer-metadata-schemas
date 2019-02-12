@@ -1,7 +1,10 @@
 {
    "@context":"http://schema.org/",
    "id":"https://playground.oer-contentbuffet.info/edu-sharing/",
-   "type":"Service",
+   "type":[
+      "Service",
+      "WebSite"
+   ],
    "name":"Jointly OER Playground",
    "url":"https://playground.oer-contentbuffet.info/edu-sharing/",
    "image":"https://playground.oer-contentbuffet.info/edu-sharing/assets/images/sources/home.png",

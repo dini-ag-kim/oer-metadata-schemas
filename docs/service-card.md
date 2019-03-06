@@ -36,6 +36,7 @@ et al.
          "location":{
             "type":"Place",
             "geo":{
+               "type": "GeoCoordinates",
                "longitude":11.3271834,
                "latitude":50.9736279
             },

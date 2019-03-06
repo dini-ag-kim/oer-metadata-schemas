@@ -26,7 +26,7 @@ et al.
      "http://purl.org/dcx/lrmi-vocabs/educationalAudienceRole/teacher",
      "http://purl.org/dcx/lrmi-vocabs/educationalAudienceRole/peerTutor"
    ],
-   "about": "https://w3id.org/class/esc/n0541",
+   "about": ["https://w3id.org/class/esc/n0541"],
    "isAccessibleForFree":true,
    "provider":[
       {

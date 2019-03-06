@@ -23,22 +23,64 @@
       }
     },
     "type":{
-      "type":"string",
-      "enum":[
-        "Service"
-      ],
-      "_display":{
-        "className":"hidden"
+      "type":"array",
+      "items":{
+        "type": "string",
+        "enum":[
+          "Service",
+          "WebSite"
+        ]
       }
     },
     "name":{
       "type":"string"
     },
-    "description":{
-      "type":"string",
-      "_display":{
-        "rows":5
+    "image": {
+      "type": "string",
+      "format": "uri"
+      },
+    "logo": {
+      "type": "string",
+      "format": "uri"
+    },
+    "inLanguage": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Language"
       }
+    },
+    "description":{
+      "type":"string"
+    },
+    "serviceType":{
+      "type":"string"
+    },
+    "audience":{
+      "type":"array",
+      "items":{
+        "type": "string",
+        "format": "uri",
+        "enum": [
+          "http://purl.org/dcx/lrmi-vocabs/educationalAudienceRole/administrator",
+          "http://purl.org/dcx/lrmi-vocabs/educationalAudienceRole/generalPublic",
+          "http://purl.org/dcx/lrmi-vocabs/educationalAudienceRole/mentor",
+          "http://purl.org/dcx/lrmi-vocabs/educationalAudienceRole/parent",
+          "http://purl.org/dcx/lrmi-vocabs/educationalAudienceRole/peerTutor",
+          "http://purl.org/dcx/lrmi-vocabs/educationalAudienceRole/professional",
+          "http://purl.org/dcx/lrmi-vocabs/educationalAudienceRole/student",
+          "http://purl.org/dcx/lrmi-vocabs/educationalAudienceRole/teacher"
+        ]
+      }
+    },
+    "about":{
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "isAccessibleForFree": {
+      "type": "boolean"
     },
     "provider":{
       "type":"array",
@@ -59,6 +101,10 @@
           "name":{
             "type":"string"
           },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
           "location":{
             "type":"object",
             "properties":{
@@ -71,6 +117,12 @@
               "geo":{
                 "type":"object",
                 "properties":{
+                  "type":{
+                    "type":"string",
+                    "enum":[
+                      "GeoCoordinates"
+                    ]
+                  },
                   "lat":{
                     "title":"Geo Coordinates, latitude",
                     "type":"number"
@@ -134,32 +186,11 @@
       "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$"
     },
     "license":{
-      "properties":{
-        "@type":{
-          "enum":[
-            "Concept"
-          ]
-        },
-        "id":{
-          "description":"The license type's unique identifier",
-          "type":"string",
-          "format":"uri"
-        },
-        "inScheme":{
-          "type":"object",
-          "properties":{
-            "@id":{
-              "enum":[
-                "https://oerworldmap.org/assets/json/licenses.json"
-              ]
-            }
-          }
-        }
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
       }
-    },
-    "email": {
-      "type": "string",
-      "format": "email"
     },
     "sameAs": {
           "title": "Siehe auch",
@@ -169,107 +200,7 @@
             "type": "string",
             "format": "uri"
           }
-        },
-    "educationalAlignment":{
-      "type":"array",
-      "items":{
-        "properties":{
-          "@type":{
-            "enum":[
-              "AlignmentObject"
-            ]
-          },
-          "@id":{
-            "description":"The subject's unique identifier",
-            "type":"string",
-            "format":"uri"
-          },
-          "alignmentType":{
-            "enum":[
-              "educationalSubject",
-              "educationalLevel"
-            ]
-          },
-          "educationalFramework":{
-            "oneOf":[
-              {
-                "type":"string",
-                "format":"uri"
-              },
-              {
-                "type":"object",
-                "properties":{
-                  "@id":{
-                    "type":"string",
-                    "format":"uri"
-                  },
-                  "name":{
-                    "type":"string"
-                  }
-                }
-              }
-            ]
-          },
-          "targetName":{
-            "type":"string"
-          },
-          "targetUrl":{
-            "type":"object",
-            "properties":{
-              "@type":{
-                "enum":[
-                  "Concept"
-                ]
-              },
-              "@id":{
-                "description":"The subject's unique identifier",
-                "type":"string",
-                "format":"uri"
-              },
-              "notation":{
-                "type":"string"
-              }
-            }
-          }
         }
-      }
-    },
-    "audience":{
-      "type":"array",
-      "items":{
-        "properties":{
-          "@type":{
-            "enum":[
-              "EducationalAudience"
-            ]
-          },
-          "@id":{
-            "description":"The unique identifier for the audience type",
-            "type":"string",
-            "format":"uri"
-          },
-          "educationalRole":{
-            "properties":{
-              "@type":{
-                "enum":[
-                  "Concept"
-                ]
-              },
-              "inScheme":{
-                "type":"object",
-                "properties":{
-                  "@id":{
-                    "enum":[
-                      "http://purl.org/dcx/lrmi-vocabs/educationalAudienceRole/"
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
   },
   "definitions": {
     "Country":{
@@ -282,6 +213,198 @@
         "CH",
         "DE"
       ]
-    }
+    },
+  "Language": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Language",
+    "description": "A language, represented by its ISO language code",
+    "type": "string",
+    "enum": [
+      "aa",
+      "ab",
+      "ae",
+      "af",
+      "ak",
+      "am",
+      "an",
+      "ar",
+      "as",
+      "av",
+      "ay",
+      "az",
+      "ba",
+      "be",
+      "bg",
+      "bh",
+      "bi",
+      "bm",
+      "bn",
+      "bo",
+      "br",
+      "bs",
+      "ca",
+      "ce",
+      "ch",
+      "co",
+      "cr",
+      "cs",
+      "cu",
+      "cv",
+      "cy",
+      "da",
+      "de",
+      "dv",
+      "dz",
+      "ee",
+      "el",
+      "en",
+      "eo",
+      "es",
+      "et",
+      "eu",
+      "fa",
+      "ff",
+      "fi",
+      "fj",
+      "fo",
+      "fr",
+      "fy",
+      "ga",
+      "gd",
+      "gl",
+      "gn",
+      "gu",
+      "gv",
+      "ha",
+      "hi",
+      "ho",
+      "hr",
+      "ht",
+      "hu",
+      "hy",
+      "hz",
+      "ia",
+      "ie",
+      "ig",
+      "ii",
+      "ik",
+      "io",
+      "is",
+      "it",
+      "iu",
+      "ja",
+      "jv",
+      "ka",
+      "kg",
+      "ki",
+      "kj",
+      "kk",
+      "kl",
+      "km",
+      "kn",
+      "ko",
+      "kr",
+      "ks",
+      "ku",
+      "kv",
+      "kw",
+      "ky",
+      "la",
+      "lb",
+      "lg",
+      "li",
+      "ln",
+      "lo",
+      "lt",
+      "lu",
+      "lv",
+      "mg",
+      "mh",
+      "mi",
+      "mk",
+      "ml",
+      "mn",
+      "mo",
+      "mr",
+      "ms",
+      "mt",
+      "my",
+      "na",
+      "nb",
+      "nd",
+      "ne",
+      "ng",
+      "nl",
+      "nn",
+      "no",
+      "nr",
+      "nv",
+      "nvi",
+      "ny",
+      "oc",
+      "oj",
+      "om",
+      "or",
+      "os",
+      "pa",
+      "pi",
+      "pl",
+      "ps",
+      "pt",
+      "qu",
+      "rm",
+      "rn",
+      "ro",
+      "ru",
+      "rw",
+      "sa",
+      "sc",
+      "sd",
+      "se",
+      "sg",
+      "si",
+      "sk",
+      "sl",
+      "sm",
+      "smi",
+      "sn",
+      "so",
+      "sq",
+      "sr",
+      "ss",
+      "st",
+      "su",
+      "sv",
+      "sw",
+      "ta",
+      "te",
+      "tg",
+      "th",
+      "ti",
+      "tk",
+      "tl",
+      "tn",
+      "to",
+      "tr",
+      "ts",
+      "tt",
+      "tw",
+      "ty",
+      "ug",
+      "uk",
+      "ur",
+      "uz",
+      "ve",
+      "vi",
+      "vo",
+      "wa",
+      "wo",
+      "xh",
+      "yo",
+      "za",
+      "zh",
+      "zu"
+    ]
   }
+}
 }

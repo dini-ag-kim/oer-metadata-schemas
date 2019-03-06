@@ -14,7 +14,7 @@
       "id":{
          "description":"The service's unique identifier",
          "type":"string",
-         "format":"uri",
+         "format":"uri"
       },
       "type":{
          "type":"array",
@@ -176,6 +176,54 @@
       "startDate":{
          "title":"Start-Datum",
          "description":"Start-Datum des Services im ISO-8601-Format",
+         "type":"string",
+         "pattern":"^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$"
+      },
+      "availableChannel": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "ServiceChannel",
+                    "WebAPI"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "enum": [
+                    "ServiceChannel",
+                    "WebAPI"
+                  ]
+                }
+              ]
+            },
+            "serviceType": {
+              "type": "string"
+            },
+            "serviceUrl": {
+              "type": "string",
+              "format": "uri"
+            },
+            "documentation": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        }
+      },
+      "schemaVersion": {
+        "type": "string",
+        "format": "uri"
+      },
+      "dateModified": {
+         "title":"Letzte Änderung",
+         "description":"Letztes Änderungsdatum der Visitenkarte im ISO-8601-Format",
          "type":"string",
          "pattern":"^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$"
       },
